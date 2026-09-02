@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accountability Agent · pm-ships-ai</title>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <img src="logo.svg" alt="pm-ships-ai" class="brand-logo">
+      <div class="brand-text">
+        <span class="brand-name">10 Years Rusty</span>
+        <span class="brand-sub">pm-ships-ai</span>
+      </div>
+    </div>
+    <a class="repo-link" href="https://github.com/" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <span class="stage-pill">Stage 1 &middot; Follow-through &amp; Accountability</span>
+    <h1>Accountability Agent</h1>
+    <p class="hero-copy">Paste today's meeting notes. It extracts new action items, and flags anything promised in earlier meetings that's still open — even if nobody brings it up again.</p>
+  </section>
+
+  <section class="card panel">
+    <div class="field">
+      <label for="meeting-label">Meeting name / date label</label>
+      <input id="meeting-label" type="text" />
+    </div>
+    <div class="field">
+      <label for="meeting-text">Paste meeting notes</label>
+      <textarea id="meeting-text" rows="8"></textarea>
+    </div>
+    <div class="field">
+      <label for="meeting-file">Or upload a file (.txt or .md export from Notion / Google Docs)</label>
+      <input id="meeting-file" type="file" accept=".txt,.md,text/plain,text/markdown" />
+    </div>
+    <button id="analyze-btn" class="btn-primary">Analyze meeting</button>
+    <div id="analyze-status" class="status-line"></div>
+  </section>
+
+  <section class="card panel">
+    <div class="field" style="margin-bottom: 10px;">
+      <label for="ask-input">💬 Ask your tracker</label>
+      <input id="ask-input" type="text" placeholder="e.g. what's overdue from last month?" />
+    </div>
+    <button id="ask-btn" class="btn-secondary">Ask</button>
+    <div id="ask-answer" class="ask-answer hidden"></div>
+  </section>
+
+  <section id="new-items-section" class="results-section hidden">
+    <h2>🆕 New action items</h2>
+    <div id="new-items-list" class="card-list"></div>
+  </section>
+
+  <section id="resolved-section" class="results-section hidden">
+    <h2>✅ Resolved since last time</h2>
+    <div id="resolved-list" class="card-list"></div>
+  </section>
+
+  <section class="results-section">
+    <h2>⚠️ Still open &amp; overdue</h2>
+    <div id="overdue-list" class="card-list"></div>
+    <p id="overdue-empty" class="empty-note hidden">Nothing overdue right now.</p>
+  </section>
+
+  <details class="all-items">
+    <summary>All open items (not just overdue)</summary>
+    <ul id="all-items-list"></ul>
+  </details>
+</main>
+
+<footer class="footer">
+  Built by <strong>Mayur Kansal</strong> — a PM who hasn't hand-written code in 10-12 years — directed and shipped with Claude. Part of the <strong>pm-ships-ai</strong> series. Follow along on <a href="https://www.linkedin.com/in/mayurkansal" target="_blank" rel="noopener">LinkedIn</a>.
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

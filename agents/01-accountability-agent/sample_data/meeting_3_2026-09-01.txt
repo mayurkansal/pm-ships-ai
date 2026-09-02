@@ -1,0 +1,8 @@
+Weekly Product Sync — 2026-09-01
+
+Attendees: Sarah, Mia, John
+
+Notes:
+- Mia completed the 5 user interviews on the checkout flow and will share a summary next week — closing that out.
+- John will update the API rate-limit documentation; no firm due date yet, just "soon."
+- Onboarding email bug was not discussed this week.

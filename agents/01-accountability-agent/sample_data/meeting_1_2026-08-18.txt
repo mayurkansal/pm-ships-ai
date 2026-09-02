@@ -1,0 +1,8 @@
+Weekly Product Sync — 2026-08-18
+
+Attendees: Sarah, Raj, Mia, John
+
+Notes:
+- Sarah will fix the onboarding welcome-email bug (wrong signup date shown) — targeting 2026-08-22.
+- Raj to share the updated pricing deck with the sales team this week.
+- Team agreed to revisit the competitor analysis doc next sync, no owner assigned yet.

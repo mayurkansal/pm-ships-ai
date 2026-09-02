@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+
+# Runtime data — never commit real usage data, only sample_data/ is tracked
+agents/*/data/*.json
