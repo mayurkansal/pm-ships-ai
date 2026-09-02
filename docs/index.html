@@ -6,51 +6,106 @@
 <title>10 Years Rusty — Mayur Kansal's AI Build Portfolio</title>
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --rust: #B7472A;
+  --rust: #C1552F;
   --rust-dark: #8F3620;
+  --rust-light: #E8916A;
   --charcoal: #1F2937;
   --muted: #6B7280;
   --bg: #FAF9F7;
   --card-bg: #FFFFFF;
   --border: #E7E2DC;
+  --navy: #14100E;
+  --navy-2: #211A16;
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--bg); color: var(--charcoal); font-family: 'Inter', -apple-system, sans-serif; line-height: 1.5; }
-.topbar { border-bottom: 1px solid var(--border); background: var(--card-bg); }
-.topbar-inner { max-width: 900px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+
+/* ── TOPBAR ── */
+.topbar { position: sticky; top: 0; z-index: 100; background: rgba(20,16,14,0.75); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+.topbar-inner { max-width: 1000px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
 .brand { display: flex; align-items: center; gap: 12px; }
-.brand-logo { width: 40px; height: 40px; border-radius: 10px; display: block; }
+.brand-logo { width: 38px; height: 38px; border-radius: 10px; display: block; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
-.brand-name { font-weight: 700; font-size: 0.95rem; }
-.brand-sub { font-size: 0.75rem; color: var(--muted); }
-.repo-link { font-size: 0.85rem; color: var(--rust); text-decoration: none; font-weight: 600; }
-.repo-link:hover { color: var(--rust-dark); }
-.container { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
-.hero h1 { font-size: 2rem; margin: 0 0 10px; font-weight: 800; }
-.hero-copy { color: var(--muted); margin: 0 0 28px; max-width: 600px; }
-.search-box { width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; font-size: 1rem; font-family: inherit; background: var(--card-bg); margin-bottom: 16px; }
-.search-box:focus { outline: none; border-color: var(--rust); box-shadow: 0 0 0 3px rgba(183,71,42,0.12); }
-.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
-.filter-btn { background: var(--card-bg); border: 1.5px solid var(--border); color: var(--muted); font-size: 0.8rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; cursor: pointer; font-family: inherit; }
-.filter-btn.active { background: var(--rust); border-color: var(--rust); color: #fff; }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
-.card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; }
-.card-kind { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--rust); margin-bottom: 8px; }
-.card h3 { font-size: 1.05rem; margin: 0 0 8px; }
-.card p { font-size: 0.88rem; color: var(--muted); margin: 0 0 16px; flex: 1; }
-.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-.tag { font-size: 0.7rem; background: var(--bg); border: 1px solid var(--border); color: var(--muted); padding: 3px 9px; border-radius: 20px; }
-.card a.btn { align-self: flex-start; background: var(--rust); color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 8px 16px; border-radius: 8px; }
-.card a.btn:hover { background: var(--rust-dark); }
-.card.soon { border-style: dashed; }
+.brand-name { font-weight: 700; font-size: 0.92rem; color: #fff; }
+.brand-sub { font-size: 0.72rem; color: rgba(255,255,255,0.5); }
+.repo-link { font-size: 0.85rem; color: var(--rust-light); text-decoration: none; font-weight: 600; }
+.repo-link:hover { color: #fff; }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 20% -10%, rgba(193,85,47,0.35), transparent 60%),
+              radial-gradient(ellipse 60% 50% at 90% 10%, rgba(193,85,47,0.18), transparent 60%),
+              linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
+  padding: 90px 24px 70px;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 0%, black, transparent 75%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(193,85,47,0.15); border: 1px solid rgba(193,85,47,0.4);
+  color: var(--rust-light); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 20px; margin-bottom: 22px;
+}
+.hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rust-light); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
+.hero h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; color: #fff; line-height: 1.1; margin: 0 0 18px; max-width: 680px; letter-spacing: -0.02em; }
+.hero h1 span { color: var(--rust-light); }
+.hero-copy { font-size: 1.05rem; color: rgba(255,255,255,0.62); max-width: 560px; margin: 0 0 44px; line-height: 1.65; }
+.stats { display: flex; gap: 40px; flex-wrap: wrap; }
+.stat-num { font-size: 2.1rem; font-weight: 800; color: #fff; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 6px; }
+
+/* ── MAIN ── */
+.container { max-width: 1000px; margin: 0 auto; padding: 44px 24px 90px; }
+.search-box { width: 100%; padding: 14px 18px; border: 1.5px solid var(--border); border-radius: 12px; font-size: 1rem; font-family: inherit; background: var(--card-bg); margin-bottom: 18px; transition: box-shadow 0.2s, border-color 0.2s; }
+.search-box:focus { outline: none; border-color: var(--rust); box-shadow: 0 0 0 4px rgba(193,85,47,0.12); }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+.filter-btn { background: var(--card-bg); border: 1.5px solid var(--border); color: var(--muted); font-size: 0.8rem; font-weight: 600; padding: 7px 16px; border-radius: 20px; cursor: pointer; font-family: inherit; transition: all 0.15s; }
+.filter-btn:hover { border-color: var(--rust); color: var(--rust); }
+.filter-btn.active { background: var(--charcoal); border-color: var(--charcoal); color: #fff; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.card {
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 26px;
+  display: flex; flex-direction: column; position: relative; overflow: hidden;
+  transition: transform 0.25s cubic-bezier(.2,.8,.2,1), box-shadow 0.25s ease, border-color 0.25s ease;
+  opacity: 0; transform: translateY(14px);
+}
+.card.in { opacity: 1; transform: translateY(0); }
+.card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--rust), var(--rust-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(20,16,14,0.12); border-color: #DCC9BE; }
+.card:hover::before { transform: scaleX(1); }
+.card-icon { width: 42px; height: 42px; border-radius: 11px; background: rgba(193,85,47,0.1); display: flex; align-items: center; justify-content: center; font-size: 19px; margin-bottom: 16px; }
+.card-kind { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rust); margin-bottom: 8px; }
+.card h3 { font-size: 1.1rem; margin: 0 0 8px; letter-spacing: -0.01em; }
+.card p { font-size: 0.88rem; color: var(--muted); margin: 0 0 18px; flex: 1; line-height: 1.6; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.tag { font-size: 0.7rem; background: var(--bg); border: 1px solid var(--border); color: var(--muted); padding: 3px 10px; border-radius: 20px; }
+.card a.btn { align-self: flex-start; background: var(--charcoal); color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 9px 18px; border-radius: 9px; transition: background 0.15s; }
+.card a.btn:hover { background: var(--rust); }
+.card.soon { border-style: dashed; background: linear-gradient(135deg, #FBF7F4, var(--card-bg)); }
+.card.soon .card-icon { opacity: 0.5; }
 .card.soon h3 { color: var(--muted); }
-.empty { color: var(--muted); font-size: 0.9rem; text-align: center; padding: 40px 0; display: none; }
-.footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 24px; border-top: 1px solid var(--border); margin-top: 20px; }
+.empty { color: var(--muted); font-size: 0.9rem; text-align: center; padding: 50px 0; display: none; }
+
+.footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 30px 24px; border-top: 1px solid var(--border); }
 .footer a { color: var(--rust); font-weight: 600; text-decoration: none; }
 .footer a:hover { color: var(--rust-dark); text-decoration: underline; }
+
+@media (max-width: 640px) { .stats { gap: 26px; } .hero { padding: 70px 20px 50px; } }
 </style>
 </head>
 <body>
@@ -68,12 +123,20 @@ body { margin: 0; background: var(--bg); color: var(--charcoal); font-family: 'I
   </div>
 </header>
 
-<main class="container">
-  <div class="hero">
-    <h1>AI agents &amp; PM tooling, shipped in public</h1>
-    <p class="hero-copy">Search what's here, then head to GitHub to download, fork, or reuse it. Built by a PM who hasn't hand-written code in 10-12 years — directed and shipped with Claude.</p>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span class="dot"></span> Shipping weekly</div>
+    <h1>AI agents &amp; PM tooling, <span>shipped in public</span></h1>
+    <p class="hero-copy">Search what's here, then head to GitHub to download, fork, or reuse it. Built by a PM who hasn't hand-written code in 10-12 years.</p>
+    <div class="stats" id="stats">
+      <div><div class="stat-num" data-target="2">0</div><div class="stat-label">Agents Shipped</div></div>
+      <div><div class="stat-num" data-target="15">0</div><div class="stat-label">Slash Commands</div></div>
+      <div><div class="stat-num" data-target="12">0</div><div class="stat-label">Lifecycle Stages Planned</div></div>
+    </div>
   </div>
+</section>
 
+<main class="container">
   <input class="search-box" id="search" type="text" placeholder="Search by name, tag, or what it does...">
   <div class="filters" id="filters"></div>
 
@@ -91,6 +154,7 @@ const REPO = "https://github.com/mayurkansal/pm-ships-ai";
 const items = [
   {
     kind: "Agent · Stage 1",
+    icon: "✅",
     title: "Accountability Agent",
     desc: "Extracts action items from meeting notes and flags anything promised earlier that's still open — even if nobody brings it up again.",
     tags: ["agent", "python", "fastapi", "follow-through"],
@@ -99,6 +163,7 @@ const items = [
   },
   {
     kind: "Toolkit",
+    icon: "🧰",
     title: "PM Slash-Command Toolkit",
     desc: "15 Claude Code slash commands for PRDs, Jira tickets, Confluence pages, UAT cases, stakeholder updates, competitive briefs, VOC analysis, and more.",
     tags: ["toolkit", "claude-code", "prd", "jira", "confluence"],
@@ -106,6 +171,19 @@ const items = [
     cat: "toolkit"
   }
 ];
+
+// Count-up stat animation
+document.querySelectorAll(".stat-num").forEach(el => {
+  const target = parseInt(el.dataset.target, 10);
+  let cur = 0;
+  const step = Math.max(1, Math.round(target / 30));
+  const tick = () => {
+    cur = Math.min(target, cur + step);
+    el.textContent = cur;
+    if (cur < target) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+});
 
 const grid = document.getElementById("grid");
 const empty = document.getElementById("empty");
@@ -127,6 +205,15 @@ cats.forEach(cat => {
   filtersEl.appendChild(btn);
 });
 
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("in");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
 function render() {
   const q = search.value.trim().toLowerCase();
   grid.innerHTML = "";
@@ -139,10 +226,12 @@ function render() {
 
   empty.style.display = filtered.length === 0 ? "block" : "none";
 
-  filtered.forEach(i => {
+  filtered.forEach((i, idx) => {
     const card = document.createElement("div");
     card.className = "card";
+    card.style.transitionDelay = (idx * 60) + "ms";
     card.innerHTML = `
+      <div class="card-icon">${i.icon}</div>
       <div class="card-kind">${i.kind}</div>
       <h3>${i.title}</h3>
       <p>${i.desc}</p>
@@ -150,12 +239,19 @@ function render() {
       <a class="btn" href="${i.link}" target="_blank" rel="noopener">View on GitHub &rarr;</a>
     `;
     grid.appendChild(card);
+    revealObserver.observe(card);
+    requestAnimationFrame(() => requestAnimationFrame(() => card.classList.add("in")));
   });
 
-  const soon = document.createElement("div");
-  soon.className = "card soon";
-  soon.innerHTML = `<div class="card-kind">Up next</div><h3>More shipping weekly</h3><p>New agents land here as they're built — one stage of the product lifecycle at a time.</p>`;
-  if (activeFilter === "all" && !q) grid.appendChild(soon);
+  if (activeFilter === "all" && !q) {
+    const soon = document.createElement("div");
+    soon.className = "card soon";
+    soon.style.transitionDelay = (filtered.length * 60) + "ms";
+    soon.innerHTML = `<div class="card-icon">＋</div><div class="card-kind">Up next</div><h3>More shipping weekly</h3><p>New agents land here as they're built — one stage of the product lifecycle at a time.</p>`;
+    grid.appendChild(soon);
+    revealObserver.observe(soon);
+    requestAnimationFrame(() => requestAnimationFrame(() => soon.classList.add("in")));
+  }
 }
 
 search.addEventListener("input", render);

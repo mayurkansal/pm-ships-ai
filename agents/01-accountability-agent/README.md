@@ -33,4 +33,4 @@ Then open http://localhost:8000 in your browser.
 None of this data is real — it's fictional, for demo purposes only. Your own `data/action_items.json` (created automatically on first real run) is gitignored and never leaves your machine.
 
 ## Built by
-Directed and product-shaped by a PM who hasn't hand-written code in 10-12 years; written, tested, and wired up by Claude. Part of the [pm-ships-ai](../../) series — **10 Years Rusty**.
+Built by a PM who hasn't hand-written code in 10-12 years. Part of the [pm-ships-ai](../../) series — **10 Years Rusty**.
