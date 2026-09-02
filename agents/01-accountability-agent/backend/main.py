@@ -96,4 +96,10 @@ def mark_done(item_id: str):
     return {"ok": True}
 
 
+@app.post("/api/reset")
+def reset():
+    store.save_store(str(DATA_PATH), {"items": []})
+    return {"ok": True}
+
+
 app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")

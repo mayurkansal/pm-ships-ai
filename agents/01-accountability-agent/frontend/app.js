@@ -14,7 +14,19 @@ const els = {
   askInput: document.getElementById("ask-input"),
   askBtn: document.getElementById("ask-btn"),
   askAnswer: document.getElementById("ask-answer"),
+  resetBtn: document.getElementById("reset-btn"),
 };
+
+els.resetBtn.addEventListener("click", async () => {
+  if (!confirm("Clear all tracked items? This can't be undone.")) return;
+  await fetch("/api/reset", { method: "POST" });
+  els.text.value = "";
+  els.newSection.classList.add("hidden");
+  els.resolvedSection.classList.add("hidden");
+  els.askAnswer.classList.add("hidden");
+  els.status.textContent = "";
+  loadItems();
+});
 
 els.file.addEventListener("change", () => {
   const file = els.file.files[0];
