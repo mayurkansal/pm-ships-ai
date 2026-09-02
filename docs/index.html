@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 Years Rusty — Mayur Kansal's AI Build Portfolio</title>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rust: #B7472A;
+  --rust-dark: #8F3620;
+  --charcoal: #1F2937;
+  --muted: #6B7280;
+  --bg: #FAF9F7;
+  --card-bg: #FFFFFF;
+  --border: #E7E2DC;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--charcoal); font-family: 'Inter', -apple-system, sans-serif; line-height: 1.5; }
+.topbar { border-bottom: 1px solid var(--border); background: var(--card-bg); }
+.topbar-inner { max-width: 900px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-logo { width: 40px; height: 40px; border-radius: 10px; display: block; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+.brand-name { font-weight: 700; font-size: 0.95rem; }
+.brand-sub { font-size: 0.75rem; color: var(--muted); }
+.repo-link { font-size: 0.85rem; color: var(--rust); text-decoration: none; font-weight: 600; }
+.repo-link:hover { color: var(--rust-dark); }
+.container { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+.hero h1 { font-size: 2rem; margin: 0 0 10px; font-weight: 800; }
+.hero-copy { color: var(--muted); margin: 0 0 28px; max-width: 600px; }
+.search-box { width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; font-size: 1rem; font-family: inherit; background: var(--card-bg); margin-bottom: 16px; }
+.search-box:focus { outline: none; border-color: var(--rust); box-shadow: 0 0 0 3px rgba(183,71,42,0.12); }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+.filter-btn { background: var(--card-bg); border: 1.5px solid var(--border); color: var(--muted); font-size: 0.8rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; cursor: pointer; font-family: inherit; }
+.filter-btn.active { background: var(--rust); border-color: var(--rust); color: #fff; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+.card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; }
+.card-kind { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--rust); margin-bottom: 8px; }
+.card h3 { font-size: 1.05rem; margin: 0 0 8px; }
+.card p { font-size: 0.88rem; color: var(--muted); margin: 0 0 16px; flex: 1; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.tag { font-size: 0.7rem; background: var(--bg); border: 1px solid var(--border); color: var(--muted); padding: 3px 9px; border-radius: 20px; }
+.card a.btn { align-self: flex-start; background: var(--rust); color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 8px 16px; border-radius: 8px; }
+.card a.btn:hover { background: var(--rust-dark); }
+.card.soon { border-style: dashed; }
+.card.soon h3 { color: var(--muted); }
+.empty { color: var(--muted); font-size: 0.9rem; text-align: center; padding: 40px 0; display: none; }
+.footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 24px; border-top: 1px solid var(--border); margin-top: 20px; }
+.footer a { color: var(--rust); font-weight: 600; text-decoration: none; }
+.footer a:hover { color: var(--rust-dark); text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <img src="logo.svg" alt="10 Years Rusty" class="brand-logo">
+      <div class="brand-text">
+        <span class="brand-name">10 Years Rusty</span>
+        <span class="brand-sub">pm-ships-ai</span>
+      </div>
+    </div>
+    <a class="repo-link" href="https://github.com/mayurkansal/pm-ships-ai" target="_blank" rel="noopener">GitHub &rarr;</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="hero">
+    <h1>AI agents &amp; PM tooling, shipped in public</h1>
+    <p class="hero-copy">Search what's here, then head to GitHub to download, fork, or reuse it. Built by a PM who hasn't hand-written code in 10-12 years — directed and shipped with Claude.</p>
+  </div>
+
+  <input class="search-box" id="search" type="text" placeholder="Search by name, tag, or what it does...">
+  <div class="filters" id="filters"></div>
+
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty">Nothing matches that search — try a different term.</p>
+</main>
+
+<footer class="footer">
+  Built by <strong>Mayur Kansal</strong>. Follow along on <a href="https://www.linkedin.com/in/mayurkansal" target="_blank" rel="noopener">LinkedIn</a>.
+</footer>
+
+<script>
+const REPO = "https://github.com/mayurkansal/pm-ships-ai";
+
+const items = [
+  {
+    kind: "Agent · Stage 1",
+    title: "Accountability Agent",
+    desc: "Extracts action items from meeting notes and flags anything promised earlier that's still open — even if nobody brings it up again.",
+    tags: ["agent", "python", "fastapi", "follow-through"],
+    link: REPO + "/tree/main/agents/01-accountability-agent",
+    cat: "agents"
+  },
+  {
+    kind: "Toolkit",
+    title: "PM Slash-Command Toolkit",
+    desc: "15 Claude Code slash commands for PRDs, Jira tickets, Confluence pages, UAT cases, stakeholder updates, competitive briefs, VOC analysis, and more.",
+    tags: ["toolkit", "claude-code", "prd", "jira", "confluence"],
+    link: REPO + "/tree/main/toolkit",
+    cat: "toolkit"
+  }
+];
+
+const grid = document.getElementById("grid");
+const empty = document.getElementById("empty");
+const search = document.getElementById("search");
+const filtersEl = document.getElementById("filters");
+let activeFilter = "all";
+
+const cats = ["all", ...new Set(items.map(i => i.cat))];
+cats.forEach(cat => {
+  const btn = document.createElement("button");
+  btn.className = "filter-btn" + (cat === "all" ? " active" : "");
+  btn.textContent = cat === "all" ? "All" : cat.charAt(0).toUpperCase() + cat.slice(1);
+  btn.onclick = () => {
+    activeFilter = cat;
+    [...filtersEl.children].forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    render();
+  };
+  filtersEl.appendChild(btn);
+});
+
+function render() {
+  const q = search.value.trim().toLowerCase();
+  grid.innerHTML = "";
+  const filtered = items.filter(i => {
+    const matchesCat = activeFilter === "all" || i.cat === activeFilter;
+    const haystack = (i.title + " " + i.desc + " " + i.tags.join(" ")).toLowerCase();
+    const matchesQuery = !q || haystack.includes(q);
+    return matchesCat && matchesQuery;
+  });
+
+  empty.style.display = filtered.length === 0 ? "block" : "none";
+
+  filtered.forEach(i => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="card-kind">${i.kind}</div>
+      <h3>${i.title}</h3>
+      <p>${i.desc}</p>
+      <div class="tags">${i.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+      <a class="btn" href="${i.link}" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+    `;
+    grid.appendChild(card);
+  });
+
+  const soon = document.createElement("div");
+  soon.className = "card soon";
+  soon.innerHTML = `<div class="card-kind">Up next</div><h3>More shipping weekly</h3><p>New agents land here as they're built — one stage of the product lifecycle at a time.</p>`;
+  if (activeFilter === "all" && !q) grid.appendChild(soon);
+}
+
+search.addEventListener("input", render);
+render();
+</script>
+</body>
+</html>
