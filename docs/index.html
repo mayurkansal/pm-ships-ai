@@ -129,7 +129,7 @@ body { margin: 0; background: var(--bg); color: var(--charcoal); font-family: 'I
     <h1>AI agents &amp; PM tooling, <span>shipped in public</span></h1>
     <p class="hero-copy">Search what's here, then head to GitHub to download, fork, or reuse it. Built by a PM who hasn't hand-written code in 10-12 years.</p>
     <div class="stats" id="stats">
-      <div><div class="stat-num" data-target="2">0</div><div class="stat-label">Agents Shipped</div></div>
+      <div><div class="stat-num" data-target="3">0</div><div class="stat-label">Agents Shipped</div></div>
       <div><div class="stat-num" data-target="15">0</div><div class="stat-label">Slash Commands</div></div>
       <div><div class="stat-num" data-target="12">0</div><div class="stat-label">Lifecycle Stages Planned</div></div>
     </div>
@@ -168,6 +168,15 @@ const items = [
     desc: "Give it a rough product idea, it researches it live on the web, and hands back a brief that tags every claim as verified or an assumption.",
     tags: ["agent", "python", "fastapi", "web-search", "discovery"],
     link: REPO + "/tree/main/agents/02-discovery-agent",
+    cat: "agents"
+  },
+  {
+    kind: "Agent · Stage 3",
+    icon: "📝",
+    title: "Requirements Agent",
+    desc: "Two agents, not one — an Interviewer asks the sharp questions, a Drafter writes the PRD, and every section is tagged ready or needs input.",
+    tags: ["agent", "python", "fastapi", "multi-agent", "prd"],
+    link: REPO + "/tree/main/agents/03-requirements-agent",
     cat: "agents"
   },
   {
