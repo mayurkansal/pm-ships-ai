@@ -4,6 +4,8 @@
 
 Each `.md` file in [`commands/`](commands) is a Claude Code custom command, prefixed `pm-` so they're easy to spot as a set and won't collide with any custom commands you already have. Drop any of them into your own `.claude/commands/` folder and the corresponding `/pm-command-name` becomes available in Claude Code.
 
+The same 15 are also available as [Claude Skills](skills) — same content, packaged so Claude can auto-trigger them instead of requiring an explicit `/command`.
+
 ## What's here
 
 | Command | What it does |
