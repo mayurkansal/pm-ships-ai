@@ -8,9 +8,10 @@ Each agent lives in its own folder under `agents/`, mapped to a stage of the pro
 
 | # | Stage | Agent | Status |
 |---|-------|-------|--------|
-| 01 | Follow-through / accountability | [Accountability Agent](agents/01-accountability-agent) | 🚧 in progress |
+| 01 | Follow-through / accountability | [Accountability Agent](agents/01-accountability-agent) | ✅ shipped |
+| 02 | Discovery & research | [Discovery Agent](agents/02-discovery-agent) | ✅ shipped |
 
-More stages (discovery, requirements, spec review, build enablement, testing, stakeholder alignment, launch, measurement, feedback synthesis, prioritization) are coming — one agent, one story, one week at a time.
+More stages (requirements, spec review, build enablement, testing, stakeholder alignment, launch, measurement, feedback synthesis, prioritization) are coming — one agent, one story, one week at a time.
 
 ## Toolkit
 Also in here: a [PM slash-command toolkit](toolkit) — 15 Claude Code commands for PRDs, Jira tickets, Confluence pages, UAT cases, stakeholder updates, and more. Drop any of them into your own `.claude/commands/` folder.
