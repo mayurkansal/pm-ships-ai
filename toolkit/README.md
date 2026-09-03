@@ -2,9 +2,21 @@
 
 15 Claude Code slash commands built for day-to-day product management work — PRDs, Jira tickets, Confluence pages, UAT test cases, stakeholder updates, competitive briefs, VOC analysis, meeting notes, newsletters, release announcements, presentations, and folder cleanup.
 
-Each `.md` file in [`commands/`](commands) is a Claude Code custom command, prefixed `pm-` so they're easy to spot as a set and won't collide with any custom commands you already have. Drop any of them into your own `.claude/commands/` folder and the corresponding `/pm-command-name` becomes available in Claude Code.
+Each `.md` file in [`commands/`](commands) is a Claude Code custom command, prefixed `pm-` so they're easy to spot as a set and won't collide with any custom commands you already have.
 
 The same 15 are also available as [Claude Skills](skills) — same content, packaged so Claude can auto-trigger them instead of requiring an explicit `/command`.
+
+## Setup (2 minutes)
+
+**Prerequisite:** [Claude Code](https://docs.claude.com/en/docs/claude-code) installed and working.
+
+1. Download this repo (green **Code → Download ZIP** button on GitHub, or `git clone https://github.com/mayurkansal/pm-ships-ai`)
+2. Pick commands, skills, or both:
+   - **Commands** (explicit — you type `/pm-prd`): copy the `.md` files you want from `toolkit/commands/` into `~/.claude/commands/` on your computer (create that folder if it doesn't exist)
+   - **Skills** (automatic — Claude notices on its own): copy the folders you want from `toolkit/skills/` into `~/.claude/skills/` (create that folder if it doesn't exist)
+3. Start a new Claude Code session (any project, any folder) — the `~/.claude/` location makes them available everywhere, not just one project
+
+That's it — no API key, no config, no install script. Only copy in the ones you'll actually use; you don't need all 15.
 
 ## What's here
 
