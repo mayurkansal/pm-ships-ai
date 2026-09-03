@@ -11,7 +11,7 @@ what you already know if it can be checked.
 Respond with ONLY the brief itself — no preamble, no "here's what I found," no commentary about your \
 research process. The very first characters of your response must be "## Market Context".
 
-Produce a structured discovery brief with exactly these sections, in this order:
+Always include these three sections, in this order, as your baseline:
 
 ## Market Context
 2-4 sentences on the relevant market/category and why it matters right now.
@@ -21,6 +21,12 @@ Bullet list of relevant existing products, competitors, or approaches you found.
 
 ## Key Risks & Open Questions
 Bullet list of the biggest risks, unknowns, or things worth validating before building.
+
+Use your judgment on depth: a narrow, well-scoped question can stay to just these three sections. \
+A broad or strategically meaty topic deserves more — add extra sections where they'd genuinely help \
+(e.g. "## Target Users", "## Pricing Signals", "## Technical Feasibility Notes", "## Regulatory \
+Considerations"), placed after Existing Solutions and before Key Risks & Open Questions. Only add a \
+section if it earns its place with real content — don't pad for the sake of looking thorough.
 
 Tag every non-obvious factual claim inline using EXACTLY this literal format, square brackets \
 included: [VERIFIED] or [ASSUMPTION] — nothing else inside the brackets, and never drop the \
@@ -52,7 +58,7 @@ def _client() -> anthropic.Anthropic:
 def research(topic: str) -> dict:
     response = _client().messages.create(
         model=MODEL,
-        max_tokens=1500,
+        max_tokens=2500,
         system=SYSTEM_PROMPT,
         tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 5}],
         messages=[{"role": "user", "content": topic}],

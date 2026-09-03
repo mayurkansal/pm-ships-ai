@@ -171,6 +171,9 @@ body {
 .sources-list a { color: var(--rust); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
 .sources-list a:hover { color: var(--rust-dark); text-decoration: underline; }
 
+.export-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.export-note { font-size: 0.8rem; color: var(--muted); margin-top: 8px; }
+
 .field input[type="file"] {
   border: 1px dashed var(--border);
   border-radius: 8px;

@@ -9,8 +9,9 @@ Most "AI research assistant" demos ask you to paste in research you already did.
 ## What it does
 1. You give it a rough product idea, feature, or question.
 2. It actually searches the web live — this isn't reasoning from training data, it's real-time research.
-3. It hands back a first-pass discovery brief: market context, existing solutions/competitors, and the risks worth checking before you build.
+3. It hands back a first-pass discovery brief: market context, existing solutions/competitors, and the risks worth checking before you build. Depth adapts to the question — a narrow ask stays to the three baseline sections, a broad strategic topic earns extra sections (target users, pricing signals, feasibility notes, etc.) on its own.
 4. Every non-obvious claim is tagged **[VERIFIED]** (found in search) or **[ASSUMPTION]** (its own reasoning) — it never quietly presents a guess as a fact.
+5. Export the finished brief as a standalone HTML report or a slide deck — both reuse the research already generated client-side, so exporting never costs another API call.
 
 This is the first agent in the series that's genuinely agentic in the technical sense — it doesn't just reason over what you give it, it takes an action (search) and decides what to do with the results.
 
