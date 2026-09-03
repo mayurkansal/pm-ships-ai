@@ -15,13 +15,19 @@ This one is two agents, not one:
 This is the first multi-agent build in the series: two distinct Claude calls with two distinct jobs, chained together, rather than one prompt doing everything.
 
 ## Setup
+This agent is fully standalone — you don't need any other agent in this repo set up or running to use it. The optional "Discovery Brief" field is just a plain text box; it works with anything pasted in, or nothing at all.
+
+1. Get this repo onto your machine (green **Code → Download ZIP** on GitHub, or `git clone https://github.com/mayurkansal/pm-ships-ai`)
+2. In your terminal:
 ```bash
-cd agents/03-requirements-agent
+cd pm-ships-ai/agents/03-requirements-agent
 pip install -r requirements.txt
 cp .env.example .env   # then edit .env and paste in your own Anthropic API key
 uvicorn main:app --app-dir backend --port 8002
 ```
-Then open http://localhost:8002 in your browser.
+3. Open http://localhost:8002 in your browser
+
+You'll end up with the whole repo on disk, but only this folder needs any setup — the other agent folders can just sit there unused.
 
 ## Try it
 Give it something like:

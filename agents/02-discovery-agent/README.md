@@ -16,13 +16,19 @@ Most "AI research assistant" demos ask you to paste in research you already did.
 This is the first agent in the series that's genuinely agentic in the technical sense — it doesn't just reason over what you give it, it takes an action (search) and decides what to do with the results.
 
 ## Setup
+This agent is fully standalone — you don't need any other agent in this repo set up or running to use it.
+
+1. Get this repo onto your machine (green **Code → Download ZIP** on GitHub, or `git clone https://github.com/mayurkansal/pm-ships-ai`)
+2. In your terminal:
 ```bash
-cd agents/02-discovery-agent
+cd pm-ships-ai/agents/02-discovery-agent
 pip install -r requirements.txt
 cp .env.example .env   # then edit .env and paste in your own Anthropic API key
 uvicorn main:app --app-dir backend --port 8001
 ```
-Then open http://localhost:8001 in your browser.
+3. Open http://localhost:8001 in your browser
+
+You'll end up with the whole repo on disk, but only this folder needs any setup — the other agent folders can just sit there unused.
 
 ## Try it
 Ask it something like:

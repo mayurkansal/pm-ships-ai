@@ -16,13 +16,19 @@ Every PM has said "didn't we already agree someone would fix that?" three meetin
 The point isn't extraction. Extraction is commodity. The point is catching the things that quietly fell through the cracks.
 
 ## Setup
+This agent is fully standalone — you don't need any other agent in this repo set up or running to use it.
+
+1. Get this repo onto your machine (green **Code → Download ZIP** on GitHub, or `git clone https://github.com/mayurkansal/pm-ships-ai`)
+2. In your terminal:
 ```bash
-cd agents/01-accountability-agent
+cd pm-ships-ai/agents/01-accountability-agent
 pip install -r requirements.txt
 cp .env.example .env   # then edit .env and paste in your own Anthropic API key
 uvicorn main:app --app-dir backend --port 8000
 ```
-Then open http://localhost:8000 in your browser.
+3. Open http://localhost:8000 in your browser
+
+You'll end up with the whole repo on disk, but only this folder needs any setup — the other agent folders can just sit there unused.
 
 ## Try it with the sample data
 `sample_data/` has three synthetic weekly syncs (2026-08-18, 2026-08-25, 2026-09-01) for a fictional team. Paste them into the app **in order**, one at a time, using the matching date as the meeting label, and watch:
