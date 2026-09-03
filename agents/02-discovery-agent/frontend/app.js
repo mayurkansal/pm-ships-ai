@@ -8,6 +8,7 @@ const els = {
   sourcesList: document.getElementById("sources-list"),
   exportReportBtn: document.getElementById("export-report-btn"),
   exportDeckBtn: document.getElementById("export-deck-btn"),
+  copyBriefBtn: document.getElementById("copy-brief-btn"),
 };
 
 let lastResult = { topic: "", brief: "", sources: [] };
@@ -263,4 +264,16 @@ els.exportReportBtn.addEventListener("click", () => {
 els.exportDeckBtn.addEventListener("click", () => {
   const filename = `discovery-deck-${Date.now()}.html`;
   downloadFile(filename, buildDeckHTML(), "text/html");
+});
+
+els.copyBriefBtn.addEventListener("click", async () => {
+  const original = els.copyBriefBtn.textContent;
+  try {
+    await navigator.clipboard.writeText(lastResult.brief);
+    els.copyBriefBtn.textContent = "✅ Copied!";
+  } catch (e) {
+    els.copyBriefBtn.textContent = "Couldn't copy — select text manually";
+  } finally {
+    setTimeout(() => { els.copyBriefBtn.textContent = original; }, 2000);
+  }
 });
