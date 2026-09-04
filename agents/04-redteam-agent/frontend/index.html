@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red-Team Agent · pm-ships-ai</title>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <img src="logo.svg" alt="pm-ships-ai" class="brand-logo">
+      <div class="brand-text">
+        <span class="brand-name">10 Years Rusty</span>
+        <span class="brand-sub">pm-ships-ai</span>
+      </div>
+    </div>
+    <button id="reset-btn" class="reset-link" type="button">Start over</button>
+    <a class="repo-link" href="https://github.com/mayurkansal/pm-ships-ai/tree/main/agents/04-redteam-agent" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <span class="stage-pill">Stage 4 &middot; Spec Review &amp; Pre-Design</span>
+    <h1>Red-Team Agent</h1>
+    <p class="hero-copy">Three skeptics attack your PRD in parallel — Engineering, Design, and an Exec — each from a completely different angle. A fourth agent merges their critiques into one prioritized list, so you fix what actually matters before this ships to a team.</p>
+  </section>
+
+  <section class="card panel">
+    <div class="field">
+      <label for="prd-input">Paste your PRD</label>
+      <textarea id="prd-input" rows="12" placeholder="Paste a full PRD here — yours, or the output from the Requirements Agent"></textarea>
+    </div>
+    <button id="redteam-btn" class="btn-primary">Red-team this PRD</button>
+    <div id="status" class="status-line"></div>
+  </section>
+
+  <section id="synthesis-section" class="results-section hidden">
+    <h2>🎯 Prioritized: What Actually Matters</h2>
+    <div id="synthesis-content" class="brief-content"></div>
+  </section>
+
+  <section id="critiques-section" class="results-section hidden">
+    <h2>🗣️ Individual Critiques</h2>
+    <div id="critiques-list"></div>
+  </section>
+</main>
+
+<footer class="footer">
+  Built by <strong>Mayur Kansal</strong> — a PM who hasn't hand-written code in 10-12 years. Part of the <strong>pm-ships-ai</strong> series. Follow along on <a href="https://www.linkedin.com/in/mayurkansal" target="_blank" rel="noopener">LinkedIn</a>.
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
